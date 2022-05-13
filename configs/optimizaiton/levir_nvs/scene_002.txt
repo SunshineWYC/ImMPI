@@ -1,0 +1,28 @@
+# data parameters
+dataset = levir_nvs
+dataset_dirpath = D:\Datasets\LEVIR_NVS
+scene_id = scene_002
+sample_id = 000
+
+# optimization parameters
+epoch = 500
+learning_rate = 0.001
+lr_ds_epoch_idx = 50,100,200,300,400:2
+ckpt_filepath = ./checkpoints/ASI_prior.ckpt
+
+# log writer and random seed parameters
+logdir = ./checkpoints/optimization/{}_{}
+summary_scalars_freq = 1
+summary_images_freq = 20
+save_ckpt_freq = 50
+seed = 23
+
+# model parameters
+depth_sample_num = 32
+feature_generator_model_type = resnet18
+neighbor_view_num = 20
+
+# loss weights
+loss_rgb_weight = 2.0
+loss_ssim_weight = 1.0
+loss_lpips_weight = 1.0

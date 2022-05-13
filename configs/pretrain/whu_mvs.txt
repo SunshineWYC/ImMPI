@@ -1,0 +1,32 @@
+# dataset parameters
+dataset = whu_mvs
+train_dataset_dirpath = D:\Datasets\WHU\whu_mvs
+train_list_filepath = ./datasets/datalist/whu_mvs/train.txt
+validate_dataset_dirpath = D:\Datasets\WHU\whu_mvs
+validate_list_filepath = ./datasets/datalist/whu_mvs/val.txt
+
+# training parameters
+epochs = 500
+learning_rate = 0.0001
+lr_ds_epoch_idx = 100,200,300,400:2
+batch_size = 1
+num_workers = 8
+logdir = "./checkpoints/ASI_training"
+#resume = False
+loadckpt = None
+
+# log writer and random seed parameters
+summary_scalars_freq = 100
+summary_images_freq = 500
+save_ckpt_freq = 50
+validate_freq = 20
+seed = 28
+
+# model parameters
+depth_sample_num = 32
+feature_generator_model_type = "resnet18"
+neighbor_view_num = 19
+
+# loss weights
+loss_rgb_weight = 2.0
+loss_ssim_weight = 1.0

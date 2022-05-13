@@ -1,0 +1,16 @@
+# data parameters
+dataset = levir_nvs
+dataset_dirpath = D:\Datasets\LEVIR_NVS
+scene_id = scene_006
+sample_id = 000
+
+# model parameters
+depth_sample_num = 32
+feature_generator_model_type = resnet18
+neighbor_view_num = 20
+
+# IO setting
+ckpt_filepath = ./checkpoints/optimization
+output = ./output/track_video
+track_viewpoint_num = 100
+track_filepath = Track
