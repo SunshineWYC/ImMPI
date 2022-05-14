@@ -139,5 +139,3 @@ loss_ssim_weight = 1.0
 ```bash
 python optimize.py --config/configs/optimization/levir_nvs/scene_000.txt
 ```
-  Optimization process compared with NeRF++ on ``scene_005``
-![](misc/images/visualization_optimize.png)
