@@ -15,7 +15,7 @@ pip install -r requirement.txt
 ```
 
 ## Reproducing Results
-1. Download the [LEVIR-NVS](https://drive.google.com/drive/folders/1orEpAN-SLF0i7yFn_mrPVmtM12E2pcdj) dataset, which contains 16 scenes. The whole dataset is organized as follows:
+1. Download the [LEVIR-NVS](https://drive.google.com/drive/folders/1orEpAN-SLF0i7yFn_mrPVmtM12E2pcdj?usp=sharing) dataset, which contains 16 scenes. The whole dataset is organized as follows:
 ```
 root_directory
 ├──view_split.txt 
@@ -69,7 +69,7 @@ ID0 ID1 ID2 ...               # index of Train-View ID for all scenes in dataset
 depth = np.array(Image.open(filename)).astype(np.float32)
 ```
 
-2. Download the pretrained weights from [Google Drive](https://drive.google.com/drive/folders/1l1z6tBtSiIl39ASyoO_2kDYmNxLYWmp1), and unzip into the repo directory. The checkpoints directory should be organized as follows:
+2. Download the pretrained weights from [Google Drive](https://drive.google.com/drive/folders/1l1z6tBtSiIl39ASyoO_2kDYmNxLYWmp1?usp=sharing), and unzip into the repo directory. The checkpoints directory should be organized as follows:
 ```
 checkpoints
 ├──ASI_prior.ckpt
@@ -93,7 +93,7 @@ python renderVideo.py –config=configs/renderTrack/scene_000.txt
 ```
 
 ## Training
-  Our algorithm consists of Across Scene Initialization and Per Scene Optimization. The former is learning-based method training based on remote sensing Multi-View Stereo dataset. We reorganize [WHU MVS/Stereo dataset](https://drive.google.com/drive/folders/1-4BpcJ4cyLSf0lxafkKBkx3eSW3UppVg) for prior extractor training.
+  Our algorithm consists of Across Scene Initialization and Per Scene Optimization. The former is learning-based method training based on remote sensing Multi-View Stereo dataset. We reorganize [WHU MVS/Stereo dataset](https://drive.google.com/drive/folders/1-4BpcJ4cyLSf0lxafkKBkx3eSW3UppVg?usp=sharing) for prior extractor training.
   Train the model by running:
 ```bash
 python train.py --config/configs/pretrain/whu_mvs.txt
