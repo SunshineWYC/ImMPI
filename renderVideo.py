@@ -111,7 +111,7 @@ if __name__ == '__main__':
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     # read reference view data, image_ref, K_ref, E_ref, depth_min, depth_max
     K_ref, E_ref, depth_min_ref, depth_max_ref = readCameraFile(os.path.join(args.dataset_dirpath, args.scene_id, "Cams", "{}.txt".format(args.sample_id)))
-    Ks_tgt, Ts_tgt_ref = getTgtViewsCameraParams(os.path.join(args.dataset_dirpath, args.scene_id, args.track_filepath), 100, E_ref)
+    Ks_tgt, Ts_tgt_ref = getTgtViewsCameraParams(os.path.join(args.dataset_dirpath, args.scene_id, args.track_filepath), args.track_viewpoint_num, E_ref)
     image_ref = Image.open(os.path.join(args.dataset_dirpath, args.scene_id, "Images", "{}.png".format(args.sample_id)))
     image_ref = (np.array(image_ref, dtype=np.float32) / 255.).transpose([2, 0, 1])  # CHW
     image_ref = torch.from_numpy(image_ref).unsqueeze(0)
@@ -132,7 +132,7 @@ if __name__ == '__main__':
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')
     if not os.path.exists(args.output):
         os.makedirs(args.output, exist_ok=True)
-    video_writer = cv2.VideoWriter(os.path.join(args.output, "{}_track.mp4".format(args.scene_id)), fourcc, 15, (512, 512))
+    video_writer = cv2.VideoWriter(os.path.join(args.output, "{}_track.mp4".format(args.scene_id)), fourcc, 10, (512, 512))
     for i in range(len(images_rendered)):
         mask = masks_rendered[i]
         ret, mask = cv2.threshold(mask, 100, 1, cv2.THRESH_BINARY)

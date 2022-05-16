@@ -3,7 +3,7 @@ Official Pytorch implementation of the preprint paper "Remote Sensing Novel View
 
 ## Introduction
 We propose a novel view synthesis method for remote sensing scenes by leveraging the recent advances in implicit neural representations. Considering the overhead and far depth imaging of remote sensing images, we present the 3D space by combining implicit multiplane images (MPI) representation and deep neural networks. The 3D scene is constructed under a self-supervised optimization paradigm through a differentiable multiplane renderer with multi-view input constraints. Images from any novel views thus can be freely rendered on basis of the reconstructed model. As a by product, the depth maps corresponding to the given viewpoint can be generated along with the rendering output. We refer to our method as Implicit Multiplane Images (ImMPI). To further improve the view synthesis under sparse-view inputs, we explore the learning-based initialization of remote sensing 3D scenes and proposed a neural network based Prior extractor to accelerate the optimization process. In addition, we propose a new dataset for remote sensing novel view synthesis with real world google earth images. Extensive experiments demonstrate the superiority of the ImMPI over previous state of the art methods in terms of the reconstruction accuracy, visual fidelity and time efficiency. Ablation experiments also suggest the effectiveness of the our methodology design.
-![](misc/images/flowchart_overall.png)
+![](misc/images/flowchart_overall.jpg)
 Visualization of some samples are shown here.
 ![](misc/images/scene_samples.gif)
 
@@ -89,10 +89,10 @@ python renderImages.py
 
 4. Render video according to the camera track supplied. Run the following command to generate video in ``output/track_video`` for ``scene_000``:
 ```bash
-python renderVideo.py –config=configs/renderTrack/scene_000.txt
+python renderVideo.py –-config=configs/renderTrack/scene_000.txt
 ```
 
-## Training
+### Training
   Our algorithm consists of Across Scene Initialization and Per Scene Optimization. The former is learning-based method training based on remote sensing Multi-View Stereo dataset. We reorganize [WHU MVS/Stereo dataset](https://drive.google.com/drive/folders/1-4BpcJ4cyLSf0lxafkKBkx3eSW3UppVg?usp=sharing) for prior extractor training.
   Train the model by running:
 ```bash
@@ -102,9 +102,9 @@ python train.py --config/configs/pretrain/whu_mvs.txt
 ```
 # dataset parameters
 dataset = whu_mvs
-train_dataset_dirpath = D:\Datasets\WHU\whu_mvs
+train_dataset_dirpath = dataset_dirpath
 train_list_filepath = ./datasets/datalist/whu_mvs/train.txt
-validate_dataset_dirpath = D:\Datasets\WHU\whu_mvs
+validate_dataset_dirpath = dataset_dirpath
 validate_list_filepath = ./datasets/datalist/whu_mvs/val.txt
 
 # training parameters
@@ -134,8 +134,21 @@ loss_rgb_weight = 2.0
 loss_ssim_weight = 1.0
 ```
 
-## Optimization
+### Optimization
   With pretrained Across Scene Initialization model, optimization for ``scene_000`` is implemented by running following command. In addition, we supply a pretrained ASI-model in ``checkpoint/ASI_prior.ckpt``.
 ```bash
 python optimize.py --config/configs/optimization/levir_nvs/scene_000.txt
 ```
+
+## Visualization
+* Visualization of rendered novel view images for scenes in Levir-NVS. We supply the camera track for each scene in dataset.
+![](misc/images/scenes.gif)
+![](misc/images/scene_sample_2.gif)
+
+* Visualization of ImMPI layers. We visualized image, depth map and RGB and sigma values of MPI layers corresponding to novel view.
+![](misc/images/rgb_depth_rgb.gif)
+&emsp;&emsp; From the figure, it can be seen that ground objects such as buildings and trees of different heights in the same scene appear in different MPI layers. As the depth increases (away from the camera), the content in the scene from the roof to the ground gradually emerges.
+![](misc/images/rgb_depth_sigma.gif)
+
+* Optimization process of Nerf++ and ImMPI(Ours) of ``#Scene Observation ``
+
