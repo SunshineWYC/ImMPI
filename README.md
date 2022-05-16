@@ -150,5 +150,5 @@ python optimize.py --config/configs/optimization/levir_nvs/scene_000.txt
 &emsp;&emsp; From the figure, it can be seen that ground objects such as buildings and trees of different heights in the same scene appear in different MPI layers. As the depth increases (away from the camera), the content in the scene from the roof to the ground gradually emerges.
 ![](misc/images/rgb_depth_sigma.gif)
 
-* Optimization process of Nerf++ and ImMPI(Ours) of ``#Scene Observation ``
-
+* Optimization process of Scene``#Observation``. Rendered RGB image and depth corresponding to one of the Test-View are shown as follows.
+![](misc/images/optimization.gif)
