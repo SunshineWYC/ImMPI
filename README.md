@@ -84,16 +84,16 @@ checkpoints
 
 3.  Render views from optimized ImMPI of each scene. Run the following command to render image from implicit multiplane representation. Make sure you have the right value for variable ``dataset_dirpath`` in ``renderImages.py``. You can find the result in ``output/syntheticImage/Levir_NVS`` directory.
 ```bash
-python renderImages.py
+python example_render_image.py
 ```
 
 4. Render video according to the camera track supplied. Run the following command to generate video in ``output/track_video`` for ``scene_000``:
 ```bash
-python renderVideo.py –-config=configs/renderTrack/scene_000.txt
+python example_render_video.py –-config=configs/renderTrack/scene_000.txt
 ```
 
 ### Training
-  Our algorithm consists of Across Scene Initialization and Per Scene Optimization. The former is learning-based method training based on remote sensing Multi-View Stereo dataset. We reorganize [WHU MVS/Stereo dataset](https://drive.google.com/drive/folders/1-4BpcJ4cyLSf0lxafkKBkx3eSW3UppVg?usp=sharing) for prior extractor training.
+  Our algorithm consists of 1) Cross-scene Initialization and 2) Per-scene Optimization. The former is learning-based method training based on remote sensing Multi-View Stereo dataset. We reorganize [WHU MVS/Stereo dataset](https://drive.google.com/drive/folders/1-4BpcJ4cyLSf0lxafkKBkx3eSW3UppVg?usp=sharing) for prior extractor training.
   Train the model by running:
 ```bash
 python train.py --config/configs/pretrain/whu_mvs.txt
@@ -143,7 +143,6 @@ python optimize.py --config/configs/optimization/levir_nvs/scene_000.txt
 ## Visualization
 * Visualization of rendered novel view images for scenes in Levir-NVS. We supply the camera track for each scene in dataset.
 ![](misc/images/scenes.gif)
-![](misc/images/scene_sample_2.gif)
 
 * Visualization of ImMPI layers. We visualized image, depth map and RGB and sigma values of MPI layers corresponding to novel view.
 ![](misc/images/rgb_depth_rgb.gif)
