@@ -1,5 +1,5 @@
 # ImMPI
-Official Pytorch implementation of the preprint paper "Remote Sensing Novel View Synthesis with Implicit Multiplane Representations"
+Official Pytorch implementation of the preprint paper "Remote Sensing Novel View Synthesis with Implicit Multiplane Representations", in arXiv:2205.08908.
 
 ## Introduction
 Novel view synthesis of remote sensing scenes is of great significance for scene visualization, human-computer interaction, and various downstream applications. Despite the recent advances in computer graphics and photogrammetry technology, generating novel views is still challenging particularly for remote sensing images due to its high complexity, view sparsity and limited view-perspective variations. In this paper, we propose a novel remote sensing view synthesis method by leveraging the recent advances in implicit neural representations. Considering the overhead and far depth imaging of remote sensing images, we represent the 3D space by combining implicit multiplane images (MPI) representation and deep neural networks. The 3D scene is reconstructed under a self-supervised optimization paradigm through a differentiable multiplane renderer with multi-view input constraints. Images from any novel views thus can be freely rendered on the basis of the reconstructed model. As a by-product, the depth maps corresponding to the given viewpoint can be generated along with the rendering output. We refer to our method as Implicit Multiplane Images ImMPI. To further improve the view synthesis under sparse-view inputs, we explore the learning-based initialization of remote sensing 3D scenes and proposed a neural network based Prior extractor to accelerate the optimization process. In addition, we propose a new dataset for remote sensing novel view synthesis with multi-view real-world google earth images. Extensive experiments demonstrate the superiority of the ImMPI over previous state-of-the-art methods in terms of reconstruction accuracy, visual fidelity, and time efficiency. Ablation experiments also suggest the effectiveness of our methodology design.
@@ -151,3 +151,16 @@ python optimize.py --config/configs/optimization/levir_nvs/scene_000.txt
 
 * Optimization process of Scene``#Observation``. Rendered RGB image and depth corresponding to one of the Test-View are shown as follows. "w/o CSI" refers to optimization without Cross-scene Initialization. 
 ![](misc/images/optimization.gif)
+
+## Citation
+If you use this code for your research, please cite our paper:
+
+``````
+@inproceedings{wu2022immpi,
+    title={Remote Sensing Novel View Synthesis with Implicit Multiplane Representations},
+    author={Yongchang Wu},
+    year={2022},
+    journal={arXiv preprint arXiv:2205.08908},
+}
+``````
+
