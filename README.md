@@ -156,11 +156,14 @@ python optimize.py --config/configs/optimization/levir_nvs/scene_000.txt
 If you use this code for your research, please cite our paper:
 
 ``````
-@inproceedings{wu2022immpi,
-    title={Remote Sensing Novel View Synthesis with Implicit Multiplane Representations},
-    author={Yongchang Wu},
-    year={2022},
-    journal={arXiv preprint arXiv:2205.08908},
-}
+@ARTICLE{9852475,
+ author={Wu, Yongchang and Zou, Zhengxia and Shi, Zhenwei},
+ journal={IEEE Transactions on Geoscience and Remote Sensing},
+ title={Remote Sensing Novel View Synthesis with Implicit Multiplane Representations},
+ year={2022},  
+ volume={},  
+ number={},  
+ pages={1-1},  
+ doi={10.1109/TGRS.2022.3197409}}
 ``````
 
