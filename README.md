@@ -157,13 +157,13 @@ If you use this code for your research, please cite our paper:
 
 ``````
 @ARTICLE{9852475,
- author={Wu, Yongchang and Zou, Zhengxia and Shi, Zhenwei},
- journal={IEEE Transactions on Geoscience and Remote Sensing},
- title={Remote Sensing Novel View Synthesis with Implicit Multiplane Representations},
- year={2022},  
- volume={},  
- number={},  
- pages={1-1},  
- doi={10.1109/TGRS.2022.3197409}}
+author={Wu, Yongchang and Zou, Zhengxia and Shi, Zhenwei},
+journal={IEEE Transactions on Geoscience and Remote Sensing},
+title={Remote Sensing Novel View Synthesis With Implicit Multiplane Representations},
+year={2022},
+volume={60},
+number={},
+pages={1-13},
+doi={10.1109/TGRS.2022.3197409}}
 ``````
 
